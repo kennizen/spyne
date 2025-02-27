@@ -86,7 +86,7 @@ export const Player = () => {
 
   return (
     <section className="container mx-auto grid grid-cols-12 py-4 h-full gap-4">
-      <div className="bg-zinc-100 flex-1 h-full overflow-auto rounded-md col-span-12 lg:col-span-3 p-3">
+      <div className="bg-zinc-100 flex-1 min-h-[20rem] h-full overflow-auto rounded-md col-span-12 lg:col-span-3 p-3">
         <CaptionMap captions={videoCaptions} handleDeleteCaption={handleDeleteCaption} />
       </div>
 
