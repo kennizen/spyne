@@ -66,7 +66,7 @@ export async function handleGetVideoDuration(URL: string): Promise<number> {
     };
 
     video.onerror = () => {
-      rej("Error in getting video duration.");
+      rej(new Error("Error in getting video duration."));
       video.remove();
     };
   });

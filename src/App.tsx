@@ -1,5 +1,5 @@
 import { ToastContainer } from "react-toastify";
-import { Player } from "./components/videoForm/Player";
+import { Player } from "./components/Player";
 import { MainLayout } from "./layouts/MainLayout";
 
 function App() {

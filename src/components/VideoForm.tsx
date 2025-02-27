@@ -3,11 +3,12 @@ import { formatTime, handleGetVideoDuration } from "@/utils/helpers";
 import { intoResultAsync } from "@/utils/typeHelpers";
 import { ChangeEvent, FormEvent, memo, useState } from "react";
 import { toast } from "react-toastify";
-import { VideoData } from "./Player";
-import { Input } from "../ui/input";
 import { CornerDownLeft, Loader } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { format } from "date-fns";
+import { VideoData } from "./Player";
+import { Input } from "./ui/input";
+import { Button } from "./ui/button";
 
 interface IProps {
   handleSetVideoData: (data: VideoData | null) => void;
@@ -51,8 +52,6 @@ export const VideoForm = memo(({ handleSetVideoData, videoData }: IProps) => {
     if (videoData !== null) handleSetVideoData(null);
   }
 
-  console.log({ videoUrl });
-
   return (
     <form onSubmit={handleOnSubmit} className="flex-1 flex flex-col bg-white p-4 rounded-md h-full gap-4">
       <div>
@@ -69,7 +68,9 @@ export const VideoForm = memo(({ handleSetVideoData, videoData }: IProps) => {
             value={videoUrl}
             onChange={handleSetVideoUrl}
           />
-          <CornerDownLeft size={18} />
+          <Button variant="secondary" type="submit">
+            <CornerDownLeft size={18} />
+          </Button>
         </div>
       </div>
 

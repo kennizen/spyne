@@ -2,9 +2,9 @@ import { InputMask } from "@react-input/mask";
 import { Plus, Save } from "lucide-react";
 import { FormEvent, memo, useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
-import { Button } from "../ui/button";
 import { getTimestamp, isValidTimestamp } from "@/utils/helpers";
 import { VideoCaption } from "./Player";
+import { Button } from "./ui/button";
 
 interface IProps {
   videoDuration: number | null;
@@ -54,8 +54,6 @@ export const CaptionForm = memo(({ handleAddCaption, videoDuration, handlePauseV
     handleGetTimestamp(videoDuration);
   }, [videoDuration]);
 
-  console.log({ videoCaption, videoDuration });
-
   return (
     <form onSubmit={handleOnSubmit} className="border rounded-md p-3 bg-white h-full">
       <div className="flex flex-col gap-3">
@@ -100,7 +98,7 @@ export const CaptionForm = memo(({ handleAddCaption, videoDuration, handlePauseV
           <label htmlFor="caption">Caption*</label>
           <textarea
             data-slot="textarea"
-            className="border-input placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive flex field-sizing-content w-full rounded-md border bg-transparent px-3 py-2 text-base shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 md:text-sm resize-none h-[10rem]"
+            className="border-input placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive flex field-sizing-content w-full rounded-md border bg-transparent px-3 py-2 text-base shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 md:text-sm resize-none h-[12rem]"
             ref={textAreaRef}
             id="caption"
             placeholder="Caption here..."
