@@ -77,7 +77,7 @@ export const CaptionForm = memo(({ handleAddCaption, videoDuration, handlePauseV
             />
           </div>
 
-          {videoDuration ? (
+          {videoDuration !== null ? (
             <Button
               disabled={!videoCaption.caption.trim() || !videoCaption.timestamp.trim()}
               type="submit"

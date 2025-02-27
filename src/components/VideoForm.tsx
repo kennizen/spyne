@@ -1,14 +1,14 @@
 import { getVideoMetadata } from "@/api/queries";
+import { cn } from "@/lib/utils";
 import { formatTime, handleGetVideoDuration } from "@/utils/helpers";
 import { intoResultAsync } from "@/utils/typeHelpers";
+import { format } from "date-fns";
+import { CornerDownLeft, Loader, Youtube } from "lucide-react";
 import { ChangeEvent, FormEvent, memo, useState } from "react";
 import { toast } from "react-toastify";
-import { CornerDownLeft, Loader } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { format } from "date-fns";
 import { VideoData } from "./Player";
-import { Input } from "./ui/input";
 import { Button } from "./ui/button";
+import { Input } from "./ui/input";
 
 interface IProps {
   handleSetVideoData: (data: VideoData | null) => void;
@@ -68,8 +68,20 @@ export const VideoForm = memo(({ handleSetVideoData, videoData }: IProps) => {
             value={videoUrl}
             onChange={handleSetVideoUrl}
           />
-          <Button variant="secondary" type="submit">
+          <Button title="Click to fetch video" variant="secondary" type="submit">
             <CornerDownLeft size={18} />
+          </Button>
+          <Button
+            onClick={() =>
+              setVideoUrl(
+                "https://res.cloudinary.com/dchszjims/video/upload/v1740640864/videos/u9nlknnj9whb7vx8lnzi.mp4"
+              )
+            }
+            title="Prefill a demo video link"
+            variant="secondary"
+            type="button"
+          >
+            <Youtube size={18} />
           </Button>
         </div>
       </div>

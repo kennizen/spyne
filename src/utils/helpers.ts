@@ -31,9 +31,13 @@ export function formatTime(seconds: number) {
 
 export function isValidTimestamp(timestamp: string) {
   const arr = timestamp.split(":");
+
+  if (arr.length < 3) return false;
+
   for (const time of arr) {
     if (time.length < 2) return false;
   }
+  
   return true;
 }
 
